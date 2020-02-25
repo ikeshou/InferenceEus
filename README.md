@@ -165,3 +165,10 @@ Add to the limitations described [above](#caution), there are some tough problem
 ## Algorithm
 ***
 (Now writing)
+
+
+## notes
+***
+This folder is migrated from ikeshou/CSG_research repository (private, for research use). Do not worry about the small number of commitment!<br>
+Now implementing:
+- add other special forms
