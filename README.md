@@ -70,7 +70,7 @@ With this library, my FFI library get to be able to know the type information of
 
 ## Additional Information for `infer-file` function
 ***
-### 1. Class for nil and numbers, and union types
+### 1. Class for nil, numbers, and union types
 
 Though `nil` is defined as one of symbols in Euslisp, it is special (We can deal with `nil` as if it were cons class). It is defined as a special class in `inference_eusfunc.l`.
 ```lisp
