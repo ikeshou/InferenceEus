@@ -1,9 +1,8 @@
-(provide :bugfixed-hash)
-
-(unless (find-package "BUGFIXED-HASH") (make-package "BUGFIXED-HASH"))
-(in-package "BUGFIXED-HASH")
+(provide :fix)    ; :bugfixed-hash -> fix
+(unless (find-package "FIX") (make-package "FIX"))
+(in-package "FIX")
 (export '(hash-table make-hash-table gethash sethash remhash hash-table-p
-	maphash clrhash queue))
+		  maphash clrhash queue))
 
 
 (defclass hash-table :slots
@@ -19,11 +18,6 @@
 			 (deleted :type symbol)
 			 (not-found)))
 
-(export '(hash-table-key hash-table-value hash-table-size
-	hash-table-count hash-table-hash-function hash-table-test-function
-	hash-table-rehash-size))
-
-(eval-when (load eval)
 (defmethod hash-table
  (:size () size)
  (:find (s)
@@ -141,9 +135,8 @@
     (dotimes (i s) (svset key i empty))
     self)
   )
-)
 
-(eval-when (load eval)
+
 (defun make-hash-table (&key (size 10) (test #'eq) (rehash-size 1.7)
 				(hash #'sxhash) (not-found nil))
   (instance hash-table :init :size size
@@ -157,6 +150,6 @@
 (defun hash-table-p (x) (derivedp x hash-table))
 (defun maphash (func hashtab) (send hashtab :map func))
 (defun clrhash (hashtab) (send hashtab :clear))
-)
+
 
 (in-package "USER")
